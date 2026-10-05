@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<nav>
+    <h2>Event Management System</h2>
+
+    <div>
+        <a href="index.html">Dashboard</a>
+        <a href="events.html">Events</a>
+        <a href="registrations.html">Registrations</a>
+    </div>
+</nav>
+
+<main>
+
+    <div class="page-header">
+        <h1>Events</h1>
+        <button id="addEventButton">Add Event</button>
+    </div>
+
+    <p id="message"></p>
+
+    <div class="filters">
+
+        <input
+            id="searchName"
+            type="text"
+            placeholder="Search event name">
+
+        <select id="statusFilter">
+            <option value="">All Status</option>
+            <option value="Upcoming">Upcoming</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+        </select>
+
+        <input id="dateFilter" type="date">
+
+        <button onclick="loadEvents()">Search</button>
+        <button onclick="clearFilters()">Clear</button>
+
+    </div>
+
+    <section id="eventFormContainer" class="form-container hidden">
+
+        <h2 id="formTitle">Add Event</h2>
+
+        <form id="eventForm">
+
+            <input type="hidden" id="eventId">
+
+            <label>Event Name</label>
+            <input id="eventName" type="text" required>
+
+            <label>Description</label>
+            <textarea id="description" required></textarea>
+
+            <label>Event Date</label>
+            <input id="eventDate" type="date" required>
+
+            <label>Event Time</label>
+            <input id="eventTime" type="time" required>
+
+            <label>Location</label>
+            <input id="location" type="text" required>
+
+            <label>Total Seats</label>
+            <input id="totalSeats" type="number" min="1" required>
+
+            <label>Status</label>
+            <select id="status">
+                <option value="Upcoming">Upcoming</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+
+            <div class="form-buttons">
+                <button type="submit">Save</button>
+                <button type="button" onclick="hideForm()">Cancel</button>
+            </div>
+
+        </form>
+
+    </section>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Location</th>
+                    <th>Total Seats</th>
+                    <th>Available</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="eventTableBody"></tbody>
+
+        </table>
+
+    </div>
+
+</main>
+
+<script src="./events.js"></script>
+
+</body>
+</html>

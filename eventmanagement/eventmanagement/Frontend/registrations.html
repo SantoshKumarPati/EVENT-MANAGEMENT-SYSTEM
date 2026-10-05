@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrations</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<nav>
+    <h2>Event Management System</h2>
+
+    <div>
+        <a href="index.html">Dashboard</a>
+        <a href="events.html">Events</a>
+        <a href="registrations.html">Registrations</a>
+    </div>
+</nav>
+
+<main>
+
+    <div class="page-header">
+        <h1>Registrations</h1>
+        <button onclick="showForm()">Register for Event</button>
+    </div>
+
+    <p id="message"></p>
+
+    <div class="filters">
+
+        <input
+            id="searchRegistration"
+            type="text"
+            placeholder="Search name or email">
+
+        <select id="eventFilter">
+            <option value="">All Events</option>
+        </select>
+
+        <button onclick="filterRegistrations()">
+            Search
+        </button>
+
+        <button onclick="clearFilters()">
+            Clear
+        </button>
+
+    </div>
+
+    <section
+        id="registrationFormContainer"
+        class="form-container hidden">
+
+        <h2>Register for Event</h2>
+
+        <form id="registrationForm">
+
+            <label>Full Name</label>
+            <input
+                id="registrationName"
+                type="text"
+                required>
+
+            <label>Email</label>
+            <input
+                id="registrationEmail"
+                type="email"
+                required>
+
+            <label>Phone</label>
+            <input
+                id="registrationPhone"
+                type="text"
+                required>
+
+            <label>Event</label>
+            <select id="registrationEvent" required>
+                <option value="">Select Event</option>
+            </select>
+
+            <div class="form-buttons">
+
+                <button type="submit">
+                    Register
+                </button>
+
+                <button
+                    type="button"
+                    onclick="hideForm()">
+                    Cancel
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Event</th>
+                    <th>Registration Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="registrationTableBody"></tbody>
+
+        </table>
+
+    </div>
+
+</main>
+
+<script src="./registrations.js"></script>
+
+</body>
+</html>
